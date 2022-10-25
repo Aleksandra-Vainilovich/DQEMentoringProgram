@@ -17,6 +17,8 @@ Install SQL Server + add the local DB feature
 ## Create user for the connection - https://www.tutorialspoint.com/ms_sql_server/ms_sql_server_create_users.htm
 	Restart MS SQL server after user creation
 
+## Clone repository from https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram/tree/main
+
 # Tests execution
 
 ## Run robot tests
