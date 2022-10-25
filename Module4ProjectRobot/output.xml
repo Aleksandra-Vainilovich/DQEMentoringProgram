@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221024 18:39:21.438" rpa="false" schemaversion="3">
+<suite id="s1" name="DBTests" source="C:\Users\Aleksandra_Vainilovi\OneDrive - EPAM\Courseweare\Data Quality Engineering Mentoring Program (Intermediate Level)\Run2\Module4. Test Automation. Frameworks\Module4ProjectRobot\Module4Robot\DBTests.robot">
+<test id="s1-t1" name="Verify a Table is present or Not" line="12">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.480" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.476" endtime="20221024 18:39:21.518"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.476" endtime="20221024 18:39:21.518"/>
+</kw>
+<kw name="Table Must Exist" library="DatabaseLibrary">
+<arg>countries</arg>
+<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
+explicit transaction commit or rollback.</doc>
+<msg timestamp="20221024 18:39:21.519" level="INFO">Executing : Table Must Exist  |  countries </msg>
+<msg timestamp="20221024 18:39:21.519" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='countries' </msg>
+<status status="PASS" starttime="20221024 18:39:21.518" endtime="20221024 18:39:21.532"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test is run by ${DBUser}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221024 18:39:21.532" level="INFO">Test is run by Robot_User4</msg>
+<status status="PASS" starttime="20221024 18:39:21.532" endtime="20221024 18:39:21.532"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.533" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.533" endtime="20221024 18:39:21.534"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.533" endtime="20221024 18:39:21.534"/>
+</kw>
+<doc>This test case verifies whether Countries table exist in the database or not</doc>
+<tag>countries</tag>
+<tag>db</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.476" endtime="20221024 18:39:21.535"/>
+</test>
+<test id="s1-t2" name="Verify the number of rows" line="18">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.536" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.536" endtime="20221024 18:39:21.536"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.536" endtime="20221024 18:39:21.536"/>
+</kw>
+<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
+<arg>SELECT country_id FROM hr.countries</arg>
+<arg>25</arg>
+<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
+will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
+transaction commit or rollback.</doc>
+<msg timestamp="20221024 18:39:21.537" level="INFO">Executing : Row Count Is Equal To X  |  SELECT country_id FROM hr.countries  |  25 </msg>
+<msg timestamp="20221024 18:39:21.537" level="INFO">Executing : Row Count  |  SELECT country_id FROM hr.countries </msg>
+<status status="PASS" starttime="20221024 18:39:21.537" endtime="20221024 18:39:21.538"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.539" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.539" endtime="20221024 18:39:21.540"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.539" endtime="20221024 18:39:21.540"/>
+</kw>
+<doc>This test case verifies if the number of rows in the table is equal to the expected number</doc>
+<tag>countries</tag>
+<tag>db</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.535" endtime="20221024 18:39:21.540"/>
+</test>
+<test id="s1-t3" name="Check if Exists in hr.employees" line="23">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.542" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.541" endtime="20221024 18:39:21.542"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.541" endtime="20221024 18:39:21.542"/>
+</kw>
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<arg>SELECT employee_id FROM hr.employees WHERE last_name = 'King';</arg>
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<msg timestamp="20221024 18:39:21.542" level="INFO">Executing : Check If Exists In Database  |  SELECT employee_id FROM hr.employees WHERE last_name = 'King'; </msg>
+<msg timestamp="20221024 18:39:21.542" level="INFO">Executing : Query  |  SELECT employee_id FROM hr.employees WHERE last_name = 'King'; </msg>
+<status status="PASS" starttime="20221024 18:39:21.542" endtime="20221024 18:39:21.543"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.543" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.543" endtime="20221024 18:39:21.543"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.543" endtime="20221024 18:39:21.543"/>
+</kw>
+<doc>This test case verifies if there is an employee with specified last name in the table</doc>
+<tag>db</tag>
+<tag>employees</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.541" endtime="20221024 18:39:21.543"/>
+</test>
+<test id="s1-t4" name="Check if not Exists in hr.employees" line="28">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.546" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.546" endtime="20221024 18:39:21.546"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.546" endtime="20221024 18:39:21.546"/>
+</kw>
+<kw name="Check If Not Exists In Database" library="DatabaseLibrary">
+<arg>SELECT employee_id FROM hr.employees WHERE job_id = '100';</arg>
+<doc>This is the negation of `check_if_exists_in_database`.</doc>
+<msg timestamp="20221024 18:39:21.546" level="INFO">Executing : Check If Not Exists In Database  |  SELECT employee_id FROM hr.employees WHERE job_id = '100'; </msg>
+<msg timestamp="20221024 18:39:21.546" level="INFO">Executing : Query  |  SELECT employee_id FROM hr.employees WHERE job_id = '100'; </msg>
+<status status="PASS" starttime="20221024 18:39:21.546" endtime="20221024 18:39:21.546"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.547" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.547" endtime="20221024 18:39:21.547"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.547" endtime="20221024 18:39:21.547"/>
+</kw>
+<doc>This test case verifies if there are no rows with undesirable jobs in the table</doc>
+<tag>db</tag>
+<tag>employees</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.544" endtime="20221024 18:39:21.547"/>
+</test>
+<test id="s1-t5" name="Verify Query: Verify the maximum value in hr.dependents.dependent_id" line="33">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.548" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.548" endtime="20221024 18:39:21.548"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.548" endtime="20221024 18:39:21.548"/>
+</kw>
+<kw name="Query" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>SELECT MAX(dependent_id) FROM [hr].[dependents];</arg>
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<msg timestamp="20221024 18:39:21.549" level="INFO">Executing : Query  |  SELECT MAX(dependent_id) FROM [hr].[dependents]; </msg>
+<msg timestamp="20221024 18:39:21.551" level="INFO">${output} = [(30, )]</msg>
+<status status="PASS" starttime="20221024 18:39:21.549" endtime="20221024 18:39:21.551"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${output}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221024 18:39:21.552" level="INFO">[(30, )]</msg>
+<status status="PASS" starttime="20221024 18:39:21.552" endtime="20221024 18:39:21.552"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${output}</arg>
+<arg>[(30, )]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221024 18:39:21.552" level="INFO">Argument types are:
+&lt;class 'list'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221024 18:39:21.552" endtime="20221024 18:39:21.552"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.552" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.552" endtime="20221024 18:39:21.553"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.552" endtime="20221024 18:39:21.553"/>
+</kw>
+<doc>This test case verifies the maximum value for specified field in the table</doc>
+<tag>db</tag>
+<tag>dependents</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.548" endtime="20221024 18:39:21.553"/>
+</test>
+<test id="s1-t6" name="Verify the values range for hr.dependents.dependent_id" line="40">
+<kw name="Connect DB" library="DatabaseConnection" type="SETUP">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>pyodbc</arg>
+<arg>${db_custom_param_string}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20221024 18:39:21.554" level="INFO">Executing : Connect To Database Using Custom Params : pyodbc.connect(db_api_2.connect(Driver='SQL Server', Server='EPBYMINW6718', Trusted_Connection='yes', TrustServerCertificate='yes', database='TRN_2')) </msg>
+<status status="PASS" starttime="20221024 18:39:21.554" endtime="20221024 18:39:21.554"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.554" endtime="20221024 18:39:21.554"/>
+</kw>
+<kw name="Row Count Is 0" library="DatabaseLibrary">
+<arg>SELECT dependent_id FROM [hr].[dependents] WHERE dependent_id BETWEEN 40 AND 100;</arg>
+<doc>Check if any rows are returned from the submitted `selectStatement`. If there are, then this will throw an
+AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction commit or
+rollback.</doc>
+<msg timestamp="20221024 18:39:21.555" level="INFO">Executing : Row Count Is 0  |  SELECT dependent_id FROM [hr].[dependents] WHERE dependent_id BETWEEN 40 AND 100; </msg>
+<msg timestamp="20221024 18:39:21.555" level="INFO">Executing : Row Count  |  SELECT dependent_id FROM [hr].[dependents] WHERE dependent_id BETWEEN 40 AND 100; </msg>
+<status status="PASS" starttime="20221024 18:39:21.555" endtime="20221024 18:39:21.557"/>
+</kw>
+<kw name="Disconnect DB" library="DatabaseConnection" type="TEARDOWN">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20221024 18:39:21.557" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20221024 18:39:21.557" endtime="20221024 18:39:21.557"/>
+</kw>
+<status status="PASS" starttime="20221024 18:39:21.557" endtime="20221024 18:39:21.557"/>
+</kw>
+<doc>This test case verifies if there are any rows with undesirable dependent_id in the table</doc>
+<tag>db</tag>
+<tag>dependents</tag>
+<tag>hr</tag>
+<status status="PASS" starttime="20221024 18:39:21.554" endtime="20221024 18:39:21.558"/>
+</test>
+<doc>SQL Tests</doc>
+<status status="PASS" starttime="20221024 18:39:21.440" endtime="20221024 18:39:21.558"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">countries</stat>
+<stat pass="6" fail="0" skip="0">db</stat>
+<stat pass="2" fail="0" skip="0">dependents</stat>
+<stat pass="2" fail="0" skip="0">employees</stat>
+<stat pass="6" fail="0" skip="0">hr</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="DBTests">DBTests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221024 18:39:21.455" level="ERROR">Error in file 'C:\Users\Aleksandra_Vainilovi\OneDrive - EPAM\Courseweare\Data Quality Engineering Mentoring Program (Intermediate Level)\Run2\Module4. Test Automation. Frameworks\Module4ProjectRobot\Module4Robot\DatabaseConnection.robot' on line 2: Setting 'Suite Setup' is not allowed in resource file.</msg>
+<msg timestamp="20221024 18:39:21.455" level="ERROR">Error in file 'C:\Users\Aleksandra_Vainilovi\OneDrive - EPAM\Courseweare\Data Quality Engineering Mentoring Program (Intermediate Level)\Run2\Module4. Test Automation. Frameworks\Module4ProjectRobot\Module4Robot\DatabaseConnection.robot' on line 3: Setting 'Suite Teardown' is not allowed in resource file.</msg>
+</errors>
+</robot>
