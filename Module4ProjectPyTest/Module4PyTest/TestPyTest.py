@@ -42,10 +42,13 @@ class TestDB:
         res = cursor.fetchall()
         assert len(res) == 0
 
-    def test_verify_the_maximum_valie_in_hr_dependents_dependent_id(self, cursor):
+    def test_verify_the_maximum_value_in_hr_dependents_dependent_id(self, cursor):
         cursor.execute('SELECT MAX(dependent_id) FROM [hr].[dependents]')
         res = cursor.fetchall()
+        #try:
         assert res == [(30, )], f'maximum value does not match expected value, got: {res}'
+        #except Exception as error:
+            #print(error)
 
     def test_verify_the_values_range_for_hr_dependents_dependent_id(self, cursor):
         cursor.execute('SELECT dependent_id FROM [hr].[dependents] WHERE dependent_id BETWEEN 40 AND 100')
