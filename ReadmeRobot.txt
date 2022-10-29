@@ -8,7 +8,6 @@ Download and install SQL Server from the official Microsoft page
 Install SQL Server + add the local DB feature
 	
 
-
 ## Create SQL Server DB
 	Connect to your local DB under administrator user
 	Select [master] database
@@ -16,6 +15,10 @@ Install SQL Server + add the local DB feature
 
 ## Create user for the connection - https://www.tutorialspoint.com/ms_sql_server/ms_sql_server_create_users.htm
 	Restart MS SQL server after user creation
+
+## Open Sql Server Configuration Manager
+	Go to SQL Server Network Configuration -> Protocols for MSSQLSERVER -> enable TCP/IP protocol
+	Go to SQL Server Services -> Restart SQL Server (should be done after user creation)
 
 ## Clone repository from https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram/tree/main
 
