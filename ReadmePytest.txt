@@ -21,7 +21,7 @@ Install SQL Server + add the local DB feature
 	Go to SQL Server Network Configuration -> Protocols for MSSQLSERVER -> enable TCP/IP protocol
 	Go to SQL Server Services -> Restart SQL Server (should be done after user creation)
 
-## Clone repository from https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram/tree/main
+## Clone Module4ProjectPyTest repository from https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram
 
 
 # Tests execution
