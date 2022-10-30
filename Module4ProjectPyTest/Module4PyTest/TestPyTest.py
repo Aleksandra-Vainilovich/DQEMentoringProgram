@@ -1,4 +1,3 @@
-from selenium import webdriver
 import pyodbc
 import pytest
 
@@ -43,10 +42,11 @@ class TestDB:
         assert len(res) == 0
 
     def test_verify_the_maximum_value_in_hr_dependents_dependent_id(self, cursor):
-        cursor.execute('SELECT MAX(dependent_id) FROM [hr].[dependents]')
-        res = cursor.fetchall()
+        cursor.execute('SELECT MAX(dependent_id) dependent_id FROM [hr].[dependents]')
+        for res in cursor:
+            cursor.fetchall()
         #try:
-        assert res == [(30, )], f'maximum value does not match expected value, got: {res}'
+        assert res[0] == 30, f'maximum value does not match expected value, got: {res[0]}'
         #except Exception as error:
             #print(error)
 
@@ -60,7 +60,8 @@ run_tests = TestDB()
 run_tests
 
 
-#pytest Module4PyTest\TestPyTest.py
-#py.test --html=Report.html
 #pytest -v -s Module4PyTest\TestPyTest.py --html=report.html
+###pytest Module4PyTest\TestPyTest.py
+###py.test --html=Report.html
+
 
