@@ -17,6 +17,10 @@ Install SQL Server + add the local DB feature
 ## Create user for the connection - https://www.tutorialspoint.com/ms_sql_server/ms_sql_server_create_users.htm
 	Restart MS SQL server after user creation
 
+## Open Sql Server Configuration Manager
+	Go to SQL Server Network Configuration -> Protocols for MSSQLSERVER -> enable TCP/IP protocol
+	Go to SQL Server Services -> Restart SQL Server (should be done after user creation)
+
 ## Clone repository from https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram/tree/main
 
 
@@ -38,19 +42,8 @@ Expected result:
 
 
 ## Check reports
-copy generated report link an paste it into browser
+Report file is created automatically in 
+	..\Module4ProjectPyTest\report.html
+	..\Module4ProjectPyTest\pytest_html_report.html
 
 
-
-
-pip install allure-pytest
-download the latest allure package zip file from the allure-framework GitHub repo
-Unzip the downloaded zip file
-Copy the path till bin
-Add it to the path environment variable
-
-pip install pytest-html
-pip install pytest-html-reporter
-settings -> project -> python Interpreter -> '+' -> PyTest-HTML -> install package
-pytest -v -s Module4PyTest\TestPyTest.py --html=report.html
-copy link to folder
