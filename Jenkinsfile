@@ -3,12 +3,12 @@ pipeline {
     stages {
       stage('version') {
         steps {
-          sh 'C:\Users\Aleksandra_Vainilovi\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10 --version'
+          sh 'python3 --version'
         }
       }
       stage('hello') {
         steps {
-          sh 'C:\Users\Aleksandra_Vainilovi\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10 hello.py'
+          sh 'python3 hello.py'
         }
       }
     }    
