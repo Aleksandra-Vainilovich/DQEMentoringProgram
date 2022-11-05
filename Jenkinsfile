@@ -1,16 +1,16 @@
 pipeline {
     agent any
     stages {
-      stage('version') {
+      stage('Build') {
         steps {
-          sh 'python3 --version'
+          git branch: 'Module5CI_CD_Basics', url: 'https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram.git'
+          sh 'python3 TestPyTest.py'
         }
       }
-      stage('hello') {
+      stage('Test') {
         steps {
-          sh 'python3 hello.py'
+          sh 'python3 -m pytest -v -s TestPyTest.py --html=report.html'
         }
       }
     }    
   }
-
