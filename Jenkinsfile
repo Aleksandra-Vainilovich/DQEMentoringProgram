@@ -4,6 +4,7 @@ pipeline {
       stage('Build') {
         steps {
           git branch: 'Module5CI_CD_Basics', url: 'https://github.com/Aleksandra-Vainilovich/DQEMentoringProgram.git'
+          sh 'cd Module4ProjectPyTest/Module4PyTest'
           sh 'python3 TestPyTest.py'
         }
       }
