@@ -4,7 +4,7 @@ import pytest
 
 @pytest.fixture(scope='module')
 def conn():
-    conn = pyodbc.connect('Driver={DSN=FreeTDS};' #SQLDocker    SQL Server
+    conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};' #SQLDocker    SQL Server 	DSN=FreeTDS
                       'Server=EPBYMINW6718;'
                       'Database=TRN_2;'
                       'Trusted_Connection=yes;'
