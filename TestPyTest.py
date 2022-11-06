@@ -2,7 +2,7 @@ import pyodbc
 import pytest
 
 drivers = [item for item in pyodbc.drivers()]
-driver = drivers[-1]
+driver = drivers[0]
 print("driver:{}".format(driver))
 
 @pytest.fixture(scope='module')
