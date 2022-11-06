@@ -2,6 +2,7 @@ import pyodbc
 import pytest
 
 drivers = [item for item in pyodbc.drivers()]
+print(drivers)
 driver = drivers[0]
 print("driver:{}".format(driver))
 
