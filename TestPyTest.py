@@ -1,14 +1,14 @@
 import pyodbc
 import pytest
 
-drivers = [item for item in pyodbc.drivers()]
-print(drivers)
-driver = drivers[0]
-print("driver:{}".format(driver))
+#drivers = [item for item in pyodbc.drivers()]
+#print(drivers)
+#driver = drivers[-1]
+#print("driver:{}".format(driver))
 
 @pytest.fixture(scope='module')
 def conn():
-    conn = pyodbc.connect('Driver={driver};' #SQLDocker     	DSN=FreeTDS	    SQL Server  ODBC Driver 17 for SQL Server
+    conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};' #SQLDocker     	DSN=FreeTDS	    SQL Server  ODBC Driver 17 for SQL Server
                       'Server=EPBYMINW6718;'	#tcp:localhost,1433
                       'Database=TRN_2;'
                       'Trusted_Connection=yes;'
