@@ -1,0 +1,53 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "test16",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "kwargs": {
+        "value": 20
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_column_count_to_be_between",
+      "kwargs": {
+        "max_value": 15,
+        "min_value": 1
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_max_to_be_between",
+      "kwargs": {
+        "column": "salary",
+        "max_value": 30000,
+        "min_value": 17000
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "job_id"
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "batch_request": {
+          "data_asset_name": "employees",
+          "data_connector_name": "default_configured_data_connector_name",
+          "datasource_name": "datasource_new",
+          "limit": 1000
+        },
+        "citation_date": "2022-11-18T19:31:34.318414Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.15.32"
+  }
+}
