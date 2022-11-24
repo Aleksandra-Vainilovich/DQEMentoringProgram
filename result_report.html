@@ -1,0 +1,85 @@
+
+<html>
+  <head><title>HTML Pandas Dataframe with CSS</title></head>
+  <link rel="stylesheet" type="text/css" href="df_style.css"/>
+  <body>
+    <table border="1" class="dataframe mystyle">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>check_status</th>
+      <th>check_level</th>
+      <th>constraint_status</th>
+      <th>check</th>
+      <th>constraint_message</th>
+      <th>constraint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Employees Review Check</td>
+      <td></td>
+      <td>SizeConstraint(Size(None))</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Employees Review Check</td>
+      <td></td>
+      <td>MinimumConstraint(Minimum(salary,None))</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Employees Review Check</td>
+      <td></td>
+      <td>MaximumConstraint(Maximum(salary,None))</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Failure</td>
+      <td>Employees Review Check</td>
+      <td>Value: 0.975 does not meet the constraint requirement!</td>
+      <td>CompletenessConstraint(Completeness(manager_id,None))</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Employees Review Check</td>
+      <td></td>
+      <td>UniquenessConstraint(Uniqueness(List(phone_number),None))</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Employees Review Check</td>
+      <td></td>
+      <td>CompletenessConstraint(Completeness(hire_date,None))</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Failure</td>
+      <td>Employees Review Check</td>
+      <td>Value: 0.225 does not meet the constraint requirement!</td>
+      <td>ComplianceConstraint(Compliance(phone_number contained in 515.123.4567,515.123.4568,515.123.4569,`phone_number` IS NULL OR `phone_number` IN ('515.123.4567','515.123.4568','515.123.4569'),None))</td>
+    </tr>
+  </tbody>
+</table>
+  </body>
+</html>
